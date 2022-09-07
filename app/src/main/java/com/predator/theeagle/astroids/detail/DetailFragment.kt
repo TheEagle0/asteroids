@@ -1,6 +1,7 @@
 package com.predator.theeagle.astroids.detail
 
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +14,21 @@ import com.predator.theeagle.astroids.entities.Asteroid
 
 class DetailFragment : Fragment() {
 
-    private lateinit var binding:FragmentDetailBinding
-    private val asteroid :Asteroid? by lazy { requireArguments().getParcelable("selectedAsteroid") }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    private lateinit var binding: FragmentDetailBinding
+    private val asteroid: Asteroid? by lazy {
+        if (Build.VERSION.SDK_INT >= 33) {
+            requireArguments().getParcelable("selectedAsteroid", Asteroid::class.java)
+        } else {
+            requireArguments().getParcelable("selectedAsteroid")
+        }
+    }
 
-         binding = FragmentDetailBinding.inflate(inflater)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
         return binding.root
     }

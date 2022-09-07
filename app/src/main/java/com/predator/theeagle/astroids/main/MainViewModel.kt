@@ -25,43 +25,11 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     val navigateToDetailFragment
         get() = _navigateToDetailFragment
 
-    private val mockData = false
-    private val _mockAsteroids = MutableLiveData<List<Asteroid>>()
-    val mockAsteroids : LiveData<List<Asteroid>>
-        get() = _mockAsteroids
-
     init {
-        if(mockData) {
-            mockData()
-        } else {
+
             refreshAsteroids()
-            getpictureOfTheDay()
-        }
-    }
+            getPictureOfTheDay()
 
-    private fun mockData() {
-
-        val dataList = mutableListOf<Asteroid>()
-
-        var count = 1
-        while (count <= 10) {
-
-            val data = Asteroid(
-                count.toLong(),
-                "codename:$count",
-                "XXXX-XX-XX",
-                77.0,
-                88.0,
-                99.8,
-                66.6,
-                true)
-
-            dataList.add(data)
-
-            ++count
-        }
-
-        _mockAsteroids.postValue(dataList)
     }
 
     fun onAsteroidItemClick(data: Asteroid) {
@@ -83,7 +51,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    private fun getpictureOfTheDay() {
+    private fun getPictureOfTheDay() {
         viewModelScope.launch {
             try {
                 _pictureOfTheDay.value = repository.getPictureOfTheDay()
