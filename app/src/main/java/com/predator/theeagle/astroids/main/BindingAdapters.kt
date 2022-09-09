@@ -1,8 +1,9 @@
-package com.predator.theeagle.astroids
+package com.predator.theeagle.astroids.main
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.predator.theeagle.astroids.R
 import com.predator.theeagle.astroids.entities.PictureOfTheDay
 
 import com.squareup.picasso.Picasso
@@ -21,8 +22,11 @@ fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
 fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.asteroid_hazardous)
+        imageView.contentDescription=imageView.context.getString(R.string.potentially_dangerous)
     } else {
         imageView.setImageResource(R.drawable.asteroid_safe)
+        imageView.contentDescription=imageView.context.getString(R.string.potentially_dangerous)
+
     }
 }
 
@@ -56,7 +60,8 @@ fun bindImagePictureOfTheDay(imageView: ImageView, data: PictureOfTheDay?) {
                 .into(imageView)
 
             val strFormat = imageView.resources.getString(
-                R.string.picture_of_the_day_text)
+                R.string.picture_of_the_day_text
+            )
             imageView.contentDescription = String.format(strFormat, it.title)
 
         }

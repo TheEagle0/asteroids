@@ -12,4 +12,7 @@ object Constants {
     const val DEFAULT_END_DATE_DAYS = 7
     const val TABLE_NAME = "asteroid"
     const val DATABASE_FILE_NAME = "asteroid.db"
+    const val ALL_ASTEROIDS="all"
+    const val TODAY_ASTEROIDS="today"
+    const val WEEK_ASTEROIDS="week"
 }

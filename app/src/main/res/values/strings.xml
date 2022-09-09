@@ -11,8 +11,12 @@
     <string name="astronomical_unit_explanation">The astronomical unit (au) is a unit of length, roughly the distance from Earth to the Sun and equal to about 150 million kilometres (93 million miles)</string>
     <string name="astronomical_unit_explanation_button">Astronomical unit definition</string>
     <string name="potentially_dangerous">Potentially Dangerous</string>
+    <string name="potentially_not_dangerous">Not Dangerous Asteroid</string>
     <string name="not_hazardous_asteroid_image">Not hazardous asteroid image</string>
     <string name="picture_of_the_day">NASA\'s picture of the day</string>
     <string name="picture_of_the_day_text">NASA\'s picture of the day: %s</string>
     <string name="absolute_magnitude">Absolute magnitude help</string>
+    <string name="today_asteroids">Today Asteroids</string>
+    <string name="week_asteroids">Week Asteroids</string>
+    <string name="all_asteroids">All Asteroids</string>
 </resources>

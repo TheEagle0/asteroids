@@ -47,7 +47,6 @@
 
         <ImageView
             android:id="@+id/status"
-            android:contentDescription="@string/potentially_dangerous"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
